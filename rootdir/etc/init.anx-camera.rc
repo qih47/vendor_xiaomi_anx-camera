@@ -1,0 +1,10 @@
+on post-fs-data
+service init.anx-camera /system/bin/init.anx-camera.sh
+    class main
+    user root
+    group root
+    oneshot
+    disabled
+
+on property:sys.boot_completed=1
+    start init.anx-camera
